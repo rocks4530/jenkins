@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-               	withSonarQubeEnv('My SonarQube Server') {
+               	withSonarQubeEnv('localSonar') {
                 	sh 'gradle sonarqube'
               	}    
             }
