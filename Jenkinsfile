@@ -12,7 +12,11 @@ pipeline {
             steps {
                 sh 'gradle test'
             }
+            steps {
+                sh 'gradle sonarqube'
+            }
         }
+        /*
         stage('deploy') {
             steps {
                 pushToCloudFoundry(
@@ -23,6 +27,7 @@ pipeline {
 				)
             }
         }
+        */
 
     }
 }
