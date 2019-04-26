@@ -13,6 +13,7 @@ pipeline {
                	withSonarQubeEnv('localSonar') {
                 	sh 'gradle sonarqube'
               	}    
+              	sleep 20
             }
         }
         stage('Quality Gate') {
