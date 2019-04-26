@@ -3,15 +3,20 @@ pipeline {
     agent any
 
     stages {
-        stage('build') {
+        stage('Build') {
             steps {
                 sh 'gradle clean build'
             }
         }
-        stage('test') {
+        stage('Test') {
             steps {
                 sh 'gradle test'
                 sh 'gradle sonarqube'
+            }
+        }
+        stage('Quality Gate') {
+            steps {
+                waitForQualityGate abortPipeline: true
             }
         }
         /*
