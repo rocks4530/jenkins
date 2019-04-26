@@ -10,8 +10,9 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'gradle test'
-                sh 'gradle sonarqube'
+               	withSonarQubeEnv('My SonarQube Server') {
+                	sh 'gradle sonarqube'
+              	}    
             }
         }
         stage('Quality Gate') {
