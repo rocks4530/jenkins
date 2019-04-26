@@ -5,8 +5,14 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'gradle build'
+                gradle {
+                	tasks('clean')
+            		tasks('build')
+            		switches('--info')
+        		}
             }
         }
+        
+
     }
 }
