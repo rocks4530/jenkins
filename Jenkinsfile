@@ -11,8 +11,6 @@ pipeline {
         stage('test') {
             steps {
                 sh 'gradle test'
-            }
-            steps {
                 sh 'gradle sonarqube'
             }
         }
