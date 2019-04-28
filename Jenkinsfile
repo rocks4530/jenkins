@@ -8,22 +8,25 @@ pipeline {
                 sh 'gradle clean build'
             }
         }
+        /*
         stage('Test') {
             steps {
                	withSonarQubeEnv('localSonar') {
                 	sh 'gradle sonarqube'
-              	}    
-              	sleep 20
+              	}
             }
         }
+        
         stage('Quality Gate') {
             steps {
+                sleep 20
             	timeout(time: 2, unit: 'MINUTES') {
                 	waitForQualityGate abortPipeline: true
             	}
             }
         }
-        /*
+        */
+        
         stage('deploy') {
             steps {
                 pushToCloudFoundry(
@@ -34,7 +37,7 @@ pipeline {
 				)
             }
         }
-        */
+        
 
     }
 }
